@@ -1,6 +1,8 @@
 #include <iostream>
 #include <iomanip>
 #include <locale.h>
+#include <time.h>
+#include <string>
 
 using namespace std;
 
@@ -13,7 +15,7 @@ using namespace std;
 #define COPAS  1
 #define PAUS  2
 #define OURO  3
-#define ESPADA 3
+#define ESPADA 4
 
 // Jogadores
 #define QUANTIDADE_JOGADORES 4
