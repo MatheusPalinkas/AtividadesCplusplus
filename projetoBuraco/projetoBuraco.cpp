@@ -52,7 +52,7 @@ void _preencherCartasBaralho(string **baralhoParam){
                 string numeroCarta = to_string(numCarta);
                 numeroCarta.insert(0, 2 - numeroCarta.size(), '0');
 
-                string carta = to_string(naipe) + numeroCarta + to_string(baralho);
+                string carta = to_string(naipe) + "-" + numeroCarta + "-" + to_string(baralho);
                 baralhoParam[indiceBaralho][indiceCarta++] = carta;
             }
             
