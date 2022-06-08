@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-#define QTD_NUMEROS 5
+#define QTD_NUMEROS 30
 
 #pragma region Funcoes Pilha
 struct No {
