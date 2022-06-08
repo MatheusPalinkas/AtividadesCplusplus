@@ -82,23 +82,9 @@ void freePilha(Pilha *pilha) {
 #pragma endregion
 
 
-int isMaiorNumeroPilhas(Pilha *pilhaImpares, Pilha *pilhaPares, int numero)
-{
-    int semNumerosNaPilha = (isEmpty(pilhaImpares) && isEmpty (pilhaPares));
-    
-    if(semNumerosNaPilha)
-        return 1;
-    
-    int maiorItem = 
-    int maiorItemPilhaImpar = (!isEmpty(pilhaImpares) && numero > pilhaImpares->topo->dado);
-    int maiorItemPilhaPar = (!isEmpty(pilhaPares) && numero > pilhaPares->topo->dado);
-
-    return semNumerosNaPilha || maiorItemPilhaImpar || maiorItemPilhaPar;
-}
-
 void digitarNumeros(Pilha *pilhaImpares, Pilha *pilhaPares)
 {
-    int num, isMaiorNumeroPilha = 1;
+    int num, maiorNumero = NULL;
     for(int i = 0; i < QTD_NUMEROS; i ++)
     {
 		do
@@ -106,14 +92,18 @@ void digitarNumeros(Pilha *pilhaImpares, Pilha *pilhaPares)
 			cout << "Digite o " << i + 1 << "º numero: ";
 			cin >> num;
 			
-            isMaiorNumeroPilha = isMaiorNumeroPilhas(pilhaImpares, pilhaPares, num);
-
-            if(!isMaiorNumeroPilha)
-            {
-                cout << "Numero invalido, digite um numero maior que anterior" << endl;
-            }
-						
-	    }while(!isMaiorNumeroPilha);
+			if(i == 0){
+				maiorNumero = num;
+			}
+			
+			if(num <= maiorNumero && i != 0)
+	        {
+	        	cout << "Numero invalido, digite um numero maior que anterior" << endl;	
+			}
+	     	
+	    }while(num <= maiorNumero && i != 0);
+	    
+	    maiorNumero = num;
 	    
         if(num % 2 == 0){
             push(pilhaPares, num);
